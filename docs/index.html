@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link href="https://fonts.googleapis.com/css2?family=Oxygen:wght@300;400;700&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/@mdi/font@4.x/css/materialdesignicons.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css" rel="stylesheet">
+  <style>
+
+    * { font-family: "Oxygen"; font-size: 16px; }
+
+    p, li {font-size: 16px; line-height: 1.5rem;}
+
+    .v-list-item__subtitle, .v-list-item__title {
+        overflow: visible; 
+         text-overflow: none;
+        white-space: wrap;
+    }
+
+    .container {
+      max-width: 750px;
+    }
+
+    .v-list-item {
+      background: #fff;
+      border-bottom: 1px solid #EBF2F4;
+    }
+
+    .bg-transparent {
+      background: transparent !important;
+    }
+
+    .flow, .v-stepper {
+      background: #DDEBEB !important;
+    }
+
+    .v-stepper, .v-stepper__header {
+      box-shadow: none;
+    }
+
+    .theme--light.v-application {
+      background: #f2f5f5;
+    }
+
+    h1 {
+      font-weight: 700;
+      font-size: 1.375rem;
+      margin-bottom: 1rem;
+    }
+
+    h2 {
+      font-weight: 400;
+      font-size: 1.1rem;
+      margin-bottom: 1rem;
+    }
+
+    .v-card__text {
+      font-size: 1rem;
+    }
+
+    .v-card__subtitle {
+      font-size: 1.3rem;
+      line-height: 1.8rem;
+    }
+
+    .v-sheet.v-card {
+      border-radius: 0;
+      background: #DDEBEB;
+    }
+
+    .theme--light.v-label, .theme--light.v-card .v-card__subtitle, .theme--light.v-card>.v-card__text {
+      color: rgba(0,0,0,.9);
+    }
+
+    .v-card__title {
+      font-weight: 700;
+      font-size: 1.375rem;
+      margin-bottom: 1rem;
+      word-break: break-word;
+    }
+
+    .v-application .primary {
+      background-color: #ee5c47 !important;
+      border-color: #ee5c47 !important;
+  }
+
+  .v-stepper__step {
+    padding-right: 20px;
+    padding-left: 0;
+  }
+
+  .adfard {
+    border-radius: 50%;
+    padding: 40px 30px;
+    font-size: 1.2rem;
+    text-align: center;
+    background: #EA5B48;
+    color: #fff;
+    width: 200px;
+    height: 200px;
+    float: right;
+  }
+
+  .fordele {
+    background: #CFE3E3;
+    padding: 20px 12px;
+  }
+
+  img {
+      max-width: 100%
+    }
+
+    .teasers .v-sheet.v-card {
+      background: #fff;
+      font-size: 1rem;
+    }
+    .teasers .v-sheet.v-card .v-card__title {
+      font-size: 1rem;
+      margin-top: -1.2rem;
+      padding: 0 1rem 1rem;
+      line-height: 1.5rem;
+    }
+    .teasers .v-sheet.v-card .v-card__subtitle {
+      font-size: 0.8rem;
+      color: #EA5B48;
+      text-transform: uppercase;
+    }
+
+
+  </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+</head>
+<body>
+  <div id="app">
+  <v-app id="inspire">
+
+    <v-container>
+      
+      <v-row
+        class="mb-6 flow px-5"
+        justify="center"
+        no-gutters
+      >
+      
+        <v-col md="12"> 
+          <v-stepper v-model="e1" flat>
+            <v-stepper-items>
+              <v-stepper-content step="1">
+
+                <v-card
+                  class="mb-12"
+                  flat
+                >
+                  <v-card-title class="font-weight-bold">
+                    Hvorfor vil du ændre på dit køkken?
+                  </v-card-title>
+                  <!--<v-card-subtitle>
+                    <p>Lorem</p>
+                    
+                  </v-card-subtitle>-->
+                  <v-card-text>
+                  <v-radio-group v-model="baggrund">
+        
+                  <v-list-item >
+                    <v-list-item-action>
+                      <v-radio value="stil"></v-radio>
+                    </v-list-item-action>
+                    <v-list-item-content>
+                      <v-list-item-title class="text-wrap">Jeg ønsker mig et køkken med et design der passer til min stil</v-list-item-title>
+                    </v-list-item-content>
+                  </v-list-item>
+
+                  <v-list-item >
+                    <v-list-item-action>
+                      <v-radio value="indretning"></v-radio>
+                    </v-list-item-action>
+                    <v-list-item-content>
+                      <v-list-item-title class="text-wrap"> Jeg har behov for en anden indretning af køkkenet. </v-list-item-title>
+                      <v-list-item-subtitle>F.eks i forbindelse med køkken alrum eller for at skabe mere plads.</v-list-item-subtitle>
+                    </v-list-item-content>
+                  </v-list-item>
+
+                  <v-list-item >
+                    <v-list-item-action>
+                      <v-radio value="opbevaring"></v-radio>
+                    </v-list-item-action>
+                    <v-list-item-content>
+                      <v-list-item-title class="text-wrap">Jeg har behov for smartere opbevaringsplads</v-list-item-title>
+                    </v-list-item-content>
+                  </v-list-item>
+
+                  <v-list-item >
+                    <v-list-item-action>
+                      <v-radio value="nyt"></v-radio>
+                    </v-list-item-action>
+                    <v-list-item-content>
+                      <v-list-item-title class="text-wrap">Jeg har brug for et nyt køkken</v-list-item-title>
+                    </v-list-item-content>
+                  </v-list-item>
+                  </v-radio-group>
+
+                 </v-card-text>
+                   
+                 <v-card-actions>
+                  <v-spacer></v-spacer>
+
+                    <v-btn
+                      color="primary"
+                      :disabled="!baggrund"
+                      @click="e1 = 2"
+                      elevation="2"
+                      tile
+                      x-large
+                    >
+                      Næste
+                    </v-btn>
+                 </v-card-actions>
+                  
+                </v-card>
+                
+              </v-stepper-content>
+              <v-stepper-content step="2">
+
+                <v-card
+                  class="mb-12"
+                  flat
+                >
+                  <v-card-title class="font-weight-bold">
+                    Hvilken stand har dit køkken?
+                  </v-card-title>
+                  
+                  <!--<v-card-subtitle>
+                    <p>Lorem</p>
+                    
+                  </v-card-subtitle>-->
+                  
+                  <v-card-text>
+                  <v-radio-group v-model="tilstand">
+                    <v-list-item >
+                      <v-list-item-action>
+                        <v-radio value="god"></v-radio>
+                      </v-list-item-action>
+                      <v-list-item-content>
+                        <v-list-item-title class="text-wrap">Næsten nyt</v-list-item-title>
+                      </v-list-item-content>
+                    </v-list-item>
+
+                    <v-list-item >
+                      <v-list-item-action>
+                        <v-radio value="okay"></v-radio>
+                      </v-list-item-action>
+                      <v-list-item-content>
+                        <v-list-item-title class="text-wrap">Brugt, men ok. </v-list-item-title>
+                      </v-list-item-content>
+                    </v-list-item>
+
+                    <v-list-item>
+                      <v-list-item-action>
+                        <v-radio value="slem"></v-radio>
+                      </v-list-item-action>
+                      <v-list-item-content>
+                        <v-list-item-title class="text-wrap">Meget slidt / i stykker</v-list-item-title>
+                      </v-list-item-content>
+                    </v-list-item>
+                  </v-radio-group>
+
+                 </v-card-text>
+                   
+                 <v-card-actions>
+
+
+                  <v-spacer></v-spacer>
+                    <v-btn
+                      color="primary"
+                      @click="e1 = e1 - 1"
+                      text
+                      x-large
+                    >
+                      Tilbage
+                    </v-btn>
+
+                    <v-btn
+                      v-if="tilstand == 'slem' || baggrund == 'indretning' || baggrund == 'opbevaring'"
+                      @click="e1 = 4"
+                      color="primary"
+                      elevation="2"
+                      tile
+                      x-large
+                    >
+                      Næste
+                    </v-btn>
+                   <v-btn
+                      v-else
+                      color="primary"
+                      @click="e1 = 3"
+                      elevation="2"
+                      :disabled="!tilstand"
+                      tile
+                      x-large
+                    >
+                      Næste
+                    </v-btn>
+
+                    
+                 </v-card-actions>
+                  
+                </v-card>
+                
+              </v-stepper-content>
+              
+              <v-stepper-content step="3">
+
+                <v-card
+                  class="mb-12"
+                  flat
+                >
+                  <v-card-title class="font-weight-bold">
+                    Hvor længe har du boet med dit køkken?
+                  </v-card-title>
+                  <!--<v-card-subtitle>
+                    <p>Lorem</p>
+                    
+                  </v-card-subtitle>-->
+                  <v-card-text>
+                  
+                  <v-radio-group v-model="periode">
+
+                    <v-list-item >
+                      <v-list-item-action>
+                        <v-radio value="under12"></v-radio>
+                      </v-list-item-action>
+                      <v-list-item-content>
+                        <v-list-item-title class="text-wrap">Mindre end 12 måneder</v-list-item-title>
+                      </v-list-item-content>
+                    </v-list-item>
+
+                    <v-list-item >
+                      <v-list-item-action>
+                        <v-radio value="over12"></v-radio>
+                      </v-list-item-action>
+                      <v-list-item-content>
+                        <v-list-item-title class="text-wrap">Mere end 12 måneder</v-list-item-title>
+                      </v-list-item-content>
+                    </v-list-item>
+
+                  </v-radio-group>
+
+                 </v-card-text>
+                   
+                 <v-card-actions>
+
+                  <v-spacer></v-spacer>
+                    <v-btn
+                      color="primary"
+                      @click="e1 = e1 - 1"
+                      text
+                      x-large
+                    >
+                      Tilbage
+                    </v-btn>
+                   <v-btn
+                      color="primary"
+                      :disabled="!periode"
+                      @click="e1 = 4"
+                      elevation="2"
+                      tile
+                      x-large
+                    >
+                      Næste
+                    </v-btn>
+                 </v-card-actions>
+                  
+                </v-card>
+                
+              </v-stepper-content>
+
+              <v-stepper-content step="4">
+                
+                <v-card
+                 flat
+                >
+                 
+                 <div class="">
+                  <v-card-subtitle class="mb-0">
+                     Vores råd til dig
+                  </v-card-subtitle>
+
+                  <div v-if="tilstand != 'slem'">
+                    <v-card-title
+                      v-if="baggrund == 'stil' && periode == 'over12'"
+                      class="font-weight-bold ma-0 py-0">
+                        Gør dit eksisterende køkken til dit drømmekøkken
+                    </v-card-title>
+
+                    <v-card-title
+                      v-if="baggrund == 'opbevaring'"
+                      class="font-weight-bold ma-0 py-0">
+                        Gør dit eksisterende køkken til dit drømmekøkken
+                    </v-card-title>
+                    <v-card-title
+                      v-if="periode == 'under12'" 
+                      class="font-weight-bold ma-0 py-0">
+                        Start med at lære dit køkken at kende
+                    </v-card-title>
+                    <v-card-title
+                      v-if="baggrund == 'indretning'"
+                      class="font-weight-bold ma-0 py-0">
+                        Få mere plads uden at skifte hele køkkenet
+                    </v-card-title>
+
+                    <v-card-title
+                      v-if="baggrund == 'nyt' && periode == 'over12'"
+                      class="font-weight-bold ma-0 py-0">
+                        Giv dit gamle køkken videre
+                    </v-card-title>
+                  </div>
+                  
+
+                  <v-card-title
+                    v-else
+                    class="font-weight-bold ma-0 py-0">
+                      Vælg et bæredygtigt køkken
+                  </v-card-title>
+
+                   
+                 </div>
+
+                  <v-card-text>
+                     <v-row>
+                      <v-col md="7">
+                        <v-spacer class="py-2"></v-spacer>
+                        <div v-if="tilstand != 'slem'">
+                          <div v-if="baggrund == 'stil' || baggrund == 'nyt' && periode == 'under12'">
+                            <p>
+                              Når du har brugt dit køkken til både hverdag og fest, kan du lettere vurdere, hvilke behov du reelt har. Måske opdager du undervejs, at du har den plads, du har brug for. Eller måske finder du ud af, at du har mere brug for skuffer end for skabe.
+                            </p>
+                          </div>
+
+                          <div v-if="baggrund == 'nyt' && periode != 'under12'">
+                            <p>
+                              Nogen gange er der ingen vej uden om et nyt køkken, hvis du ikke kan få det til at passe til dine behov. Men du kan stadig tænke bæredygtigt ved at give eller sælge dit gamle køkken videre.
+                            </p>
+                          </div>
+
+                          <div v-if="baggrund == 'opbevaring'">
+                            <p>
+                            Du kan gentænke køkkenets rammer og skabe mere plads med smarte møbler eller nye moduler. </p>
+                            <p>Du kan reparere de dele af køkkenet, der er gået i stykker eller nøjes med at skifte enkeltdele.  </p>
+                            <p>Du kan måske gøre meget af det selv – eller du kan få hjælp fra en håndværker. </p>
+                          </div>
+
+                          <div v-if="baggrund == 'stil' && periode != 'under12'">
+                            <p>Du kan sætte dit helt eget præg på køkkenet med en ny farve, eller ved at skifte lågerne. Der findes mange virksomehder som leverer nye låger til ældre køkkenskabe. </p>
+                            <p>Du kan måske gøre meget af det selv – eller du kan få hjælp fra en håndværker. </p>
+                          </div>
+
+                          <div v-if="baggrund == 'indretning'">
+                            <p>
+                            Du kan gentænke køkkenets rammer og skabe mere plads med smarte møbler eller nye moduler. </p>
+                            <p>
+                              Du kan genbruge det gamle køkken. Fx kan du skrue næsten alt i køkkenet fra hinanden og flytte det, så du får bedre plads eller det køkkenalrum, du ønsker dig.
+                            </p>
+                          </div>
+                            
+                        </div>
+                        <div v-else>
+                          <div>
+                            <p>
+                            Nogen gange er der ingen vej uden om et nyt køkken, hvis det gamle er helt slidt ned, eller du ikke kan få det til at passe til dine behov. Men du kan stadig tænke bæredygtigt ved at gå efter bæredygtige materialer og høj kvalitet der holder i mange år.
+                            </p>
+                          </div>
+                        </div>
+
+
+                      </v-col>
+                      <v-col md="5">
+                        <div v-if="tilstand != 'slem'">
+                          <div v-if="baggrund == 'stil' || baggrund == 'nyt' && periode == 'under12'">
+                            <div class="adfard">
+                              Det tager i gennemsnit 6 måneder for at få et nyt køkken fra idé til installation
+                            </div>
+                          </div>
+                          <div v-else>
+                            <div v-if="baggrund == 'nyt' && periode == 'over12'" class="adfard">
+                                Du sparer klimaet for 10 ton CO2 ved at give dit køkken videre
+                            </div>
+                            <div v-if="baggrund == 'stil'" class="adfard">
+                               Et nyt kvalitetskøkken koster op til 500.000 kr.
+                            </div>
+                            <div v-if="baggrund == 'indretning'" class="adfard">
+                               Et nyt kvalitetskøkken koster op til 500.000 kr.
+                            </div>
+                            <div v-if="baggrund == 'opbevaring'" class="adfard">
+                                Et helt nyt køkken koster 10 ton CO2 I materialer og installation
+                            </div>
+                            <div v-if="tilstand == 'slem'" class="">
+                                <img src="http://static1.squarespace.com/static/590b37f446c3c4b30424d998/t/59bfe6e08419c29f702772ac/1505748709241/FSC-PEFC-Blog.png?format=1500w" style="max-width: 90%">
+                            </div>
+                          </div>
+                        </div>
+                        <div v-else>
+                          
+                          <img src="http://static1.squarespace.com/static/590b37f446c3c4b30424d998/t/59bfe6e08419c29f702772ac/1505748709241/FSC-PEFC-Blog.png?format=1500w" style="max-width: 90%">
+                          
+                        </div>
+                      </v-col>
+                    </v-row>
+
+                    <v-spacer class="py-2"></v-spacer>
+                    <div class="fordele">
+                      <div v-if="tilstand != 'slem'">
+                        <h2
+                          v-if="baggrund == 'stil' && periode == 'over12'"
+                          class="font-weight-bold">
+                            Fordele ved at give en makeover
+                        </h2>
+
+                        <h2
+                          v-if="baggrund == 'opbevaring'"
+                          class="font-weight-bold">
+                            Fordele ved at renovere
+                        </h2>
+                        <h2
+                          v-if="periode == 'under12'" 
+                          class="font-weight-bold">
+                            Fordele ved at lære dit køkken at kende
+                        </h2>
+                        <h2
+                          v-if="baggrund == 'indretning'"
+                          class="font-weight-bold">
+                            Fordele ved kun at skifte dele af dit køkken
+                        </h2>
+
+                        <h2
+                          v-if="baggrund == 'nyt' && periode == 'over12'"
+                          class="font-weight-bold">
+                            Fordele ved at give det videre
+                        </h2>
+                      </div>
+                      <div
+                        v-else
+                        >
+                        <h2 class="font-weight-bold">
+                            Fordele ved at vælge et bæredygtigt køkken
+                        </h2>
+                      </div>
+
+                     <ul>
+                        <div v-if="baggrund == 'stil' || baggrund == 'nyt' && periode == 'under12'">
+                          <li >Du kan flytte hurtigere ind i din nye bolig, og du slipper for en stor beslutning oven i flytningen.</li>
+                          <li>Du finder ud af, hvad du reelt har behov for i dit køkken.</li>
+                          <li>Du undgår fejlbeslutninger.</li>
+                        </div>
+                        
+                        <div v-if="baggrund == 'nyt' && periode == 'over12'">
+                          <li>Du kan hjælpe nogen, der ikke har råd til et nyt køkken.</li>
+                          <li>Du kan evt. tjene lidt penge - måske kan du bruge dem på at vælge en ny bordplade af høj kvalitet, som har lang levetid.</li>
+                          <li>Du kan få andre til at pille dit gamle køkken ned, hvis de overtager det eller køber det af dig.</li>
+                        </div>
+
+                        <div v-if="tilstand != 'slem'">
+                          <li>Du kan sætte dit eget præg på dit køkken</li>
+                          <li>Du slipper for at stå uden køkken i flere uger.</li>
+                          <li>Det er billigere. Et nyt køkken koster op til 500.000 kr. </li>
+                          <li>Det er mere bæredygtigt.</li>
+                        </div>
+
+                        <li v-if="tilstand == 'slem'">Du sparer store mængder af CO2 og sparer på jordens ressourcer.</li>
+                        
+                      </ul>
+                    </div>
+                    
+                   
+                    <v-spacer class="py-2"></v-spacer>
+
+                  
+                  </v-card-text>
+
+                 
+                  <v-container fluid class="teasers">
+                    <v-row dense>
+                      <v-col
+                        cols="4"
+                      >
+                        <v-card
+                          class="mx-auto"
+                          max-width="344"
+                        >
+                          <v-img
+                            src="https://www.bolius.dk/fileadmin/_processed_/a/5/csm_skaarup_2_3_3b77786934.jpg"
+                            height="150px"
+                          ></v-img>
+                          <v-card-subtitle>
+                            GALLERI
+                          </v-card-subtitle>
+
+                          <v-card-title>
+                            20 køkkenrenoveringer til under 5000 kr.
+                          </v-card-title>
+
+                        </v-card>
+                      </v-col>
+                      <v-col
+                        cols="4"
+                      >
+                        <v-card
+                          class="mx-auto"
+                          max-width="344"
+                        >
+                          <v-img
+                            src="https://de7ps54rd7sof.cloudfront.net/fileadmin/_processed_/a/0/csm_Koekken_Bordplade_0e4f436aed.jpg"
+                            height="150px"
+                          ></v-img>
+                          <v-card-subtitle>
+                            TIPS OG RÅD
+                          </v-card-subtitle>
+                          <v-card-title>
+                            6 slidstærke og bæredygtige bordplader
+                          </v-card-title>
+
+                        </v-card>
+                      </v-col>
+                      <v-col
+                        cols="4"
+                      >
+                        <v-card
+                          class="mx-auto"
+                          max-width="344"
+                        >
+                          <v-img
+                            src="https://www.bolius.dk/fileadmin/_processed_/3/7/csm_006_25_1fa7815b3e.jpg"
+                            height="150px"
+                          ></v-img>
+                          <v-card-subtitle>
+                            GUIDE
+                          </v-card-subtitle>
+                          <v-card-title>
+                            Sådan skiller du nemt dit køkken skånsomt ad.
+                          </v-card-title>
+
+                        </v-card>
+                      </v-col>
+                    </v-row>
+                  </v-container>
+
+
+                   <v-list>
+
+                    <v-list-item :href="'https://www.bolius.dk/saadan-maler-du-gamle-traevinduer-17051'">
+                      <v-list-item-icon>
+                        <v-icon>mdi-chevron-right</v-icon>
+                      </v-list-item-icon>
+                      <v-list-item-content>
+                        <v-list-item-title>
+                           Sådan kommer du af med dit køkken på en bæredygtig måde
+                        </v-list-item-title>
+                      </v-list-item-content>
+                    </v-list-item>
+
+                    <v-list-item :href="'https://www.bolius.dk/saadan-maler-du-gamle-traevinduer-17051'">
+                      <v-list-item-icon>
+                        <v-icon>mdi-chevron-right</v-icon>
+                      </v-list-item-icon>
+                      <v-list-item-content>
+                        <v-list-item-title>
+                           10 måder at bruge dit gamle køkken på
+                        </v-list-item-title>
+                      </v-list-item-content>
+                    </v-list-item>
+
+                    <v-list-item :href="'https://www.bolius.dk/saadan-maler-du-gamle-traevinduer-17051'">
+                      <v-list-item-icon>
+                        <v-icon>mdi-chevron-right</v-icon>
+                      </v-list-item-icon>
+                      <v-list-item-content>
+                        <v-list-item-title>
+                           Sådan reparerer du en låge, der hænger
+                        </v-list-item-title>
+                      </v-list-item-content>
+                    </v-list-item>
+
+                    <v-list-item :href="'https://www.bolius.dk/saadan-maler-du-gamle-traevinduer-17051'">
+                      <v-list-item-icon>
+                        <v-icon>mdi-chevron-right</v-icon>
+                      </v-list-item-icon>
+                      <v-list-item-content>
+                        <v-list-item-title>
+                           20 køkkenrenoveringer til under 5.000 kr.
+                        </v-list-item-title>
+                      </v-list-item-content>
+                    </v-list-item>
+
+                    <v-list-item :href="'https://www.bolius.dk/saadan-maler-du-gamle-traevinduer-17051'">
+                      <v-list-item-icon>
+                        <v-icon>mdi-chevron-right</v-icon>
+                      </v-list-item-icon>
+                      <v-list-item-content>
+                        <v-list-item-title>
+                           Sådan giver du dine køkkenlåger en makeover
+                        </v-list-item-title>
+                      </v-list-item-content>
+                    </v-list-item>
+
+                  </v-list>
+
+
+                  
+               </v-card>
+               
+              
+
+                
+              </v-stepper-content>
+            </v-stepper-items>
+          </v-stepper>
+          
+          
+
+        </v-row>
+
+      </v-container>
+      <v-card
+          class="mt-12"
+          color="grey lighten-2"
+          flat
+          >
+    <v-card-text>
+      <v-row>
+        <v-col cols="6">
+          <p> 
+            baggrund : {{ baggrund }}
+          </p>
+          <p>
+            tilstand : {{ tilstand }}
+          </p>
+          <p>
+            periode : {{ periode }}
+          </p>
+        </v-col>
+      </v-row>
+      
+      
+    </v-card-text>
+  </v-card>
+   </v-app>
+</div>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
+  <script>
+    new Vue({
+      el: '#app',
+      vuetify: new Vuetify({
+        theme: {
+          themes: {
+            light: {
+              primary: '#ee5c47',
+              secondary: '#fff',
+              anchor: '#ee5c47',
+            },
+          },
+        },
+      }),
+      data () {
+        return {
+          tilstand: '',
+          periode: '',
+          baggrund: '',
+          e1: 1,
+        }
+      },
+    })
+
+  </script>
+</body>
+</html>
