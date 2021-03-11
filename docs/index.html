@@ -144,6 +144,7 @@
         <v-col md="12"> 
           <v-stepper v-model="e1" flat>
             <v-stepper-items>
+              
               <v-stepper-content step="1">
 
                 <v-card
@@ -151,87 +152,13 @@
                   flat
                 >
                   <v-card-title class="font-weight-bold">
-                    Hvorfor vil du ændre på dit køkken?
-                  </v-card-title>
-                  <!--<v-card-subtitle>
-                    <p>Lorem</p>
-                    
-                  </v-card-subtitle>-->
-                  <v-card-text>
-                  <v-radio-group v-model="baggrund">
-        
-                  <v-list-item >
-                    <v-list-item-action>
-                      <v-radio value="stil"></v-radio>
-                    </v-list-item-action>
-                    <v-list-item-content>
-                      <v-list-item-title class="text-wrap">Jeg ønsker mig et køkken med et design der passer til min stil</v-list-item-title>
-                    </v-list-item-content>
-                  </v-list-item>
-
-                  <v-list-item >
-                    <v-list-item-action>
-                      <v-radio value="indretning"></v-radio>
-                    </v-list-item-action>
-                    <v-list-item-content>
-                      <v-list-item-title class="text-wrap"> Jeg har behov for en anden indretning af køkkenet. </v-list-item-title>
-                      <v-list-item-subtitle>F.eks i forbindelse med køkken alrum eller for at skabe mere plads.</v-list-item-subtitle>
-                    </v-list-item-content>
-                  </v-list-item>
-
-                  <v-list-item >
-                    <v-list-item-action>
-                      <v-radio value="opbevaring"></v-radio>
-                    </v-list-item-action>
-                    <v-list-item-content>
-                      <v-list-item-title class="text-wrap">Jeg har behov for smartere opbevaringsplads</v-list-item-title>
-                    </v-list-item-content>
-                  </v-list-item>
-
-                  <v-list-item >
-                    <v-list-item-action>
-                      <v-radio value="nyt"></v-radio>
-                    </v-list-item-action>
-                    <v-list-item-content>
-                      <v-list-item-title class="text-wrap">Jeg har brug for et nyt køkken</v-list-item-title>
-                    </v-list-item-content>
-                  </v-list-item>
-                  </v-radio-group>
-
-                 </v-card-text>
-                   
-                 <v-card-actions>
-                  <v-spacer></v-spacer>
-
-                    <v-btn
-                      color="primary"
-                      :disabled="!baggrund"
-                      @click="e1 = 2"
-                      elevation="2"
-                      tile
-                      x-large
-                    >
-                      Næste
-                    </v-btn>
-                 </v-card-actions>
-                  
-                </v-card>
-                
-              </v-stepper-content>
-              <v-stepper-content step="2">
-
-                <v-card
-                  class="mb-12"
-                  flat
-                >
-                  <v-card-title class="font-weight-bold">
-                    Hvilken stand har dit køkken?
+                    Hvilken tilstand er dit køkken i?
                   </v-card-title>
                   
-                  <!--<v-card-subtitle>
+                  <v-card-subtitle>
                     <p>Lorem</p>
                     
-                  </v-card-subtitle>-->
+                  </v-card-subtitle>
                   
                   <v-card-text>
                   <v-radio-group v-model="tilstand">
@@ -240,7 +167,7 @@
                         <v-radio value="god"></v-radio>
                       </v-list-item-action>
                       <v-list-item-content>
-                        <v-list-item-title class="text-wrap">Næsten nyt</v-list-item-title>
+                        <v-list-item-title class="text-wrap">Som nyt</v-list-item-title>
                       </v-list-item-content>
                     </v-list-item>
 
@@ -249,7 +176,7 @@
                         <v-radio value="okay"></v-radio>
                       </v-list-item-action>
                       <v-list-item-content>
-                        <v-list-item-title class="text-wrap">Brugt, men ok. </v-list-item-title>
+                        <v-list-item-title class="text-wrap">Ok, men slidt </v-list-item-title>
                       </v-list-item-content>
                     </v-list-item>
 
@@ -258,7 +185,7 @@
                         <v-radio value="slem"></v-radio>
                       </v-list-item-action>
                       <v-list-item-content>
-                        <v-list-item-title class="text-wrap">Meget slidt / i stykker</v-list-item-title>
+                        <v-list-item-title class="text-wrap">I stykker</v-list-item-title>
                       </v-list-item-content>
                     </v-list-item>
                   </v-radio-group>
@@ -269,17 +196,10 @@
 
 
                   <v-spacer></v-spacer>
-                    <v-btn
-                      color="primary"
-                      @click="e1 = e1 - 1"
-                      text
-                      x-large
-                    >
-                      Tilbage
-                    </v-btn>
+                    
 
                     <v-btn
-                      v-if="tilstand == 'slem' || baggrund == 'indretning' || baggrund == 'opbevaring'"
+                      v-if="tilstand == 'slem'"
                       @click="e1 = 4"
                       color="primary"
                       elevation="2"
@@ -291,7 +211,7 @@
                    <v-btn
                       v-else
                       color="primary"
-                      @click="e1 = 3"
+                      @click="e1 = 2"
                       elevation="2"
                       :disabled="!tilstand"
                       tile
@@ -307,7 +227,7 @@
                 
               </v-stepper-content>
               
-              <v-stepper-content step="3">
+              <v-stepper-content step="2">
 
                 <v-card
                   class="mb-12"
@@ -316,29 +236,29 @@
                   <v-card-title class="font-weight-bold">
                     Hvor længe har du boet med dit køkken?
                   </v-card-title>
-                  <!--<v-card-subtitle>
-                    <p>Lorem</p>
-                    
-                  </v-card-subtitle>-->
+                  <v-card-subtitle>
+                    <p>Måske har du boet med dit køkken i mange år og kender det ud og ind, eller måske er du lige flyttet ind og vil gerne give det eget præg</p>
+                  </v-card-subtitle>
+
                   <v-card-text>
                   
                   <v-radio-group v-model="periode">
 
                     <v-list-item >
                       <v-list-item-action>
-                        <v-radio value="under12"></v-radio>
+                        <v-radio value="under6"></v-radio>
                       </v-list-item-action>
                       <v-list-item-content>
-                        <v-list-item-title class="text-wrap">Mindre end 12 måneder</v-list-item-title>
+                        <v-list-item-title class="text-wrap">Under 6 måneder</v-list-item-title>
                       </v-list-item-content>
                     </v-list-item>
 
                     <v-list-item >
                       <v-list-item-action>
-                        <v-radio value="over12"></v-radio>
+                        <v-radio value="over6"></v-radio>
                       </v-list-item-action>
                       <v-list-item-content>
-                        <v-list-item-title class="text-wrap">Mere end 12 måneder</v-list-item-title>
+                        <v-list-item-title class="text-wrap">Over 6 måneder</v-list-item-title>
                       </v-list-item-content>
                     </v-list-item>
 
@@ -357,9 +277,102 @@
                     >
                       Tilbage
                     </v-btn>
+                    <v-btn
+                      v-if="periode == 'under6'"
+                      @click="e1 = 4"
+                      color="primary"
+                      elevation="2"
+                      tile
+                      x-large
+                    >
+                      Næste
+                    </v-btn>
                    <v-btn
+                      v-else
                       color="primary"
                       :disabled="!periode"
+                      @click="e1 = 3"
+                      elevation="2"
+                      tile
+                      x-large
+                    >
+                      Næste
+                    </v-btn>
+                 </v-card-actions>
+                  
+                </v-card>
+                
+              </v-stepper-content>
+
+              <v-stepper-content step="3">
+
+                <v-card
+                  class="mb-12"
+                  flat
+                >
+                  <v-card-title class="font-weight-bold">
+                    Hvad vil du gerne ændre?
+                  </v-card-title>
+                  <v-card-subtitle>
+                    <p>Nogle gange skal der ikke så meget til at give køkkenet et helt nyt look. Andre gange er der behov for en lidt større ombygning for at få plads til drømmekøkkenet.</p>
+                  </v-card-subtitle>
+                  <v-card-text>
+                  <v-radio-group v-model="omfang">
+        
+                  <v-list-item >
+                    <v-list-item-action>
+                      <v-radio value="mindre"></v-radio>
+                    </v-list-item-action>
+                    <v-list-item-content>
+                      <v-list-item-title class="text-wrap">Bare en ny stil</v-list-item-title>
+                    </v-list-item-content>
+                  </v-list-item>
+
+                  <v-list-item >
+                    <v-list-item-action>
+                      <v-radio value="middel"></v-radio>
+                    </v-list-item-action>
+                    <v-list-item-content>
+                      <v-list-item-title class="text-wrap">Der er behov for mere plads</v-list-item-title>
+                      <v-list-item-subtitle>F.eks </v-list-item-subtitle>
+                    </v-list-item-content>
+                  </v-list-item>
+
+                  <v-list-item >
+                    <v-list-item-action>
+                      <v-radio value="stort"></v-radio>
+                    </v-list-item-action>
+                    <v-list-item-content>
+                      <v-list-item-title class="text-wrap">Hele køkkenet skal have en tur (både plads og stil)</v-list-item-title>
+                    </v-list-item-content>
+                  </v-list-item>
+
+                  <v-list-item >
+                    <v-list-item-action>
+                      <v-radio value="nyt"></v-radio>
+                    </v-list-item-action>
+                    <v-list-item-content>
+                      <v-list-item-title class="text-wrap">Jeg vil have et helt nyt køkken</v-list-item-title>
+                    </v-list-item-content>
+                  </v-list-item>
+                  </v-radio-group>
+
+                 </v-card-text>
+                   
+                 <v-card-actions>
+                  <v-spacer></v-spacer>
+                    <v-btn
+                      color="primary"
+                      @click="e1 = e1 - 1"
+                      text
+                      x-large
+                    >
+                      Tilbage
+                    </v-btn>
+
+                    <v-btn
+                      color="primary"
+                      :disabled="!omfang"
                       @click="e1 = 4"
                       elevation="2"
                       tile
@@ -385,36 +398,38 @@
                   </v-card-subtitle>
 
                   <div v-if="tilstand != 'slem'">
+
                     <v-card-title
-                      v-if="baggrund == 'stil' && periode == 'over12'"
+                      v-if="omfang == 'mindre'"
                       class="font-weight-bold ma-0 py-0">
-                        Gør dit eksisterende køkken til dit drømmekøkken
+                        Giv dit køkken en makeover
                     </v-card-title>
 
                     <v-card-title
-                      v-if="baggrund == 'opbevaring'"
-                      class="font-weight-bold ma-0 py-0">
-                        Gør dit eksisterende køkken til dit drømmekøkken
-                    </v-card-title>
-                    <v-card-title
-                      v-if="periode == 'under12'" 
-                      class="font-weight-bold ma-0 py-0">
-                        Start med at lære dit køkken at kende
-                    </v-card-title>
-                    <v-card-title
-                      v-if="baggrund == 'indretning'"
+                      v-if="omfang == 'middel'"
                       class="font-weight-bold ma-0 py-0">
                         Få mere plads uden at skifte hele køkkenet
                     </v-card-title>
 
                     <v-card-title
-                      v-if="baggrund == 'nyt' && periode == 'over12'"
+                      v-if="omfang == 'stort'"
+                      class="font-weight-bold ma-0 py-0">
+                        Gør dit eksisterende køkken til dit drømmekøkken
+                    </v-card-title>
+
+                    <v-card-title
+                      v-if="periode == 'under6'" 
+                      class="font-weight-bold ma-0 py-0">
+                        Start med at lære dit køkken at kende
+                    </v-card-title>
+
+                    <v-card-title
+                      v-if="omfang == 'nyt'"
                       class="font-weight-bold ma-0 py-0">
                         Giv dit gamle køkken videre
                     </v-card-title>
                   </div>
                   
-
                   <v-card-title
                     v-else
                     class="font-weight-bold ma-0 py-0">
@@ -429,36 +444,36 @@
                       <v-col md="7">
                         <v-spacer class="py-2"></v-spacer>
                         <div v-if="tilstand != 'slem'">
-                          <div v-if="baggrund == 'stil' || baggrund == 'nyt' && periode == 'under12'">
+                          <div v-if="periode == 'under6'">
                             <p>
                               Når du har brugt dit køkken til både hverdag og fest, kan du lettere vurdere, hvilke behov du reelt har. Måske opdager du undervejs, at du har den plads, du har brug for. Eller måske finder du ud af, at du har mere brug for skuffer end for skabe.
                             </p>
                           </div>
 
-                          <div v-if="baggrund == 'nyt' && periode != 'under12'">
+                          <div v-if="omfang == 'nyt'">
                             <p>
                               Nogen gange er der ingen vej uden om et nyt køkken, hvis du ikke kan få det til at passe til dine behov. Men du kan stadig tænke bæredygtigt ved at give eller sælge dit gamle køkken videre.
                             </p>
                           </div>
 
-                          <div v-if="baggrund == 'opbevaring'">
-                            <p>
-                            Du kan gentænke køkkenets rammer og skabe mere plads med smarte møbler eller nye moduler. </p>
-                            <p>Du kan reparere de dele af køkkenet, der er gået i stykker eller nøjes med at skifte enkeltdele.  </p>
-                            <p>Du kan måske gøre meget af det selv – eller du kan få hjælp fra en håndværker. </p>
-                          </div>
-
-                          <div v-if="baggrund == 'stil' && periode != 'under12'">
+                          <div v-if="omfang == 'mindre'">
                             <p>Du kan sætte dit helt eget præg på køkkenet med en ny farve, eller ved at skifte lågerne. Der findes mange virksomehder som leverer nye låger til ældre køkkenskabe. </p>
                             <p>Du kan måske gøre meget af det selv – eller du kan få hjælp fra en håndværker. </p>
                           </div>
 
-                          <div v-if="baggrund == 'indretning'">
+                          <div v-if="omfang == 'middel'">
                             <p>
                             Du kan gentænke køkkenets rammer og skabe mere plads med smarte møbler eller nye moduler. </p>
                             <p>
                               Du kan genbruge det gamle køkken. Fx kan du skrue næsten alt i køkkenet fra hinanden og flytte det, så du får bedre plads eller det køkkenalrum, du ønsker dig.
                             </p>
+                          </div>
+
+                          <div v-if="omfang == 'stort'">
+                            <p>
+                            Du kan gentænke køkkenets rammer og skabe mere plads med smarte møbler eller nye moduler. </p>
+                            <p>Du kan reparere de dele af køkkenet, der er gået i stykker eller nøjes med at skifte enkeltdele.  </p>
+                            <p>Du kan måske gøre meget af det selv – eller du kan få hjælp fra en håndværker. </p>
                           </div>
                             
                         </div>
@@ -474,31 +489,32 @@
                       </v-col>
                       <v-col md="5">
                         <div v-if="tilstand != 'slem'">
-                          <div v-if="baggrund == 'stil' || baggrund == 'nyt' && periode == 'under12'">
-                            <div class="adfard">
-                              Det tager i gennemsnit 6 måneder for at få et nyt køkken fra idé til installation
-                            </div>
+                
+                          <div v-if="periode == 'under6'" class="adfard">
+                            <!-- Start med at lære dit køkken at kende -->
+                            Det tager i gennemsnit 6 måneder for at få et nyt køkken fra idé til installation
                           </div>
-                          <div v-else>
-                            <div v-if="baggrund == 'nyt' && periode == 'over12'" class="adfard">
-                                Du sparer klimaet for 10 ton CO2 ved at give dit køkken videre
-                            </div>
-                            <div v-if="baggrund == 'stil'" class="adfard">
-                               Et nyt kvalitetskøkken koster op til 500.000 kr.
-                            </div>
-                            <div v-if="baggrund == 'indretning'" class="adfard">
-                               Et nyt kvalitetskøkken koster op til 500.000 kr.
-                            </div>
-                            <div v-if="baggrund == 'opbevaring'" class="adfard">
-                                Et helt nyt køkken koster 10 ton CO2 I materialer og installation
-                            </div>
-                            <div v-if="tilstand == 'slem'" class="">
-                                <img src="http://static1.squarespace.com/static/590b37f446c3c4b30424d998/t/59bfe6e08419c29f702772ac/1505748709241/FSC-PEFC-Blog.png?format=1500w" style="max-width: 90%">
-                            </div>
+                          
+                          <div v-if="omfang == 'mindre'" class="adfard">
+                            <!-- Giv dit køkken en makeover -->
+                             Et nyt kvalitetskøkken koster op til 500.000 kr.
                           </div>
+                          <div v-if="omfang == 'middel'" class="adfard">
+                              <!-- Få mere plads uden at skifte hele køkkenet -->
+                             Et nyt kvalitetskøkken koster op til 500.000 kr.
+                          </div>
+                          <div v-if="omfang == 'stort'" class="adfard">
+                            <!--  Gør dit eksisterende køkken til dit drømmekøkken -->
+                            Et helt nyt køkken koster 10 ton CO2 I materialer og installation
+                          </div>
+                          <div v-if="omfang == 'nyt'" class="adfard">
+                            <!--Giv dit gamle køkken videre -->
+                            Du sparer klimaet for 10 ton CO2 ved at give dit køkken videre
+                          </div>
+              
                         </div>
                         <div v-else>
-                          
+                          <!--Vælg et bæredygtigt køkken -->
                           <img src="http://static1.squarespace.com/static/590b37f446c3c4b30424d998/t/59bfe6e08419c29f702772ac/1505748709241/FSC-PEFC-Blog.png?format=1500w" style="max-width: 90%">
                           
                         </div>
@@ -508,33 +524,73 @@
                     <v-spacer class="py-2"></v-spacer>
                     <div class="fordele">
                       <div v-if="tilstand != 'slem'">
-                        <h2
-                          v-if="baggrund == 'stil' && periode == 'over12'"
-                          class="font-weight-bold">
-                            Fordele ved at give en makeover
-                        </h2>
 
-                        <h2
-                          v-if="baggrund == 'opbevaring'"
-                          class="font-weight-bold">
-                            Fordele ved at renovere
-                        </h2>
-                        <h2
-                          v-if="periode == 'under12'" 
-                          class="font-weight-bold">
+                        <div v-if="periode == 'under6'">
+                          <h2
+                            class="font-weight-bold">
                             Fordele ved at lære dit køkken at kende
-                        </h2>
-                        <h2
-                          v-if="baggrund == 'indretning'"
-                          class="font-weight-bold">
-                            Fordele ved kun at skifte dele af dit køkken
-                        </h2>
+                          </h2>
+                          <ul>
+                            <li>Du kan flytte hurtigere ind i din nye bolig, og du slipper for en stor beslutning oven i flytningen.</li>
+                            <li>Du finder ud af, hvad du reelt har behov for i dit køkken.</li>
+                            <li>Du undgår fejlbeslutninger.</li>
+                          </ul>
+                        </div>
+                        
+                        <div
+                          v-if="omfang == 'mindre'">
+                          <h2 class="font-weight-bold">
+                            Fordele ved at give en makeover
+                          </h2>
+                          <ul>
+                            <li>Du kan sætte dit eget præg på dit køkken</li>
+                            <li>Du slipper for at stå uden køkken i flere uger.</li>
+                            <li>Det er billigere. Et nyt køkken koster op til 500.000 kr. </li>
+                            <li>Det er mere bæredygtigt.</li>
+                          </ul>
+                        </div>
+                        
 
-                        <h2
-                          v-if="baggrund == 'nyt' && periode == 'over12'"
-                          class="font-weight-bold">
+                        <div
+                        v-if="omfang == 'middel'"
+                        >
+                          <h2 class="font-weight-bold">
+                            Fordele ved kun at skifte dele af dit køkken
+                          </h2>
+                          <ul>
+                            <li>Du kan sætte dit eget præg på dit køkken</li>
+                            <li>Du slipper for at stå uden køkken i flere uger.</li>
+                            <li>Det er billigere. Et nyt køkken koster op til 500.000 kr. </li>
+                            <li>Det er mere bæredygtigt.</li>
+                          </ul>
+                        </div>
+
+                        <div
+                        v-if="omfang == 'stort'"
+                        >
+                          <h2 class="font-weight-bold">
+                            Fordele ved kun renovere
+                          </h2>
+                          <ul>
+                            <li>Du kan sætte dit eget præg på dit køkken</li>
+                            <li>Du slipper for at stå uden køkken i flere uger.</li>
+                            <li>Det er billigere. Et nyt køkken koster op til 500.000 kr. </li>
+                            <li>Det er mere bæredygtigt.</li>
+                          </ul>
+                        </div>
+
+                        <div
+                        v-if="omfang == 'nyt'"
+                        >
+                          <h2 class="font-weight-bold">
                             Fordele ved at give det videre
-                        </h2>
+                          </h2>
+                          <ul>
+                            <li>Du kan hjælpe nogen, der ikke har råd til et nyt køkken.</li>
+                            <li>Du kan evt. tjene lidt penge - måske kan du bruge dem på at vælge en ny bordplade af høj kvalitet, som har lang levetid.</li>
+                            <li>Du kan få andre til at pille dit gamle køkken ned, hvis de overtager det eller køber det af dig.</li>
+                          </ul>
+                        </div>
                       </div>
                       <div
                         v-else
@@ -542,40 +598,16 @@
                         <h2 class="font-weight-bold">
                             Fordele ved at vælge et bæredygtigt køkken
                         </h2>
+                        <ul>
+                          <li>Du sparer store mængder af CO2 og sparer på jordens ressourcer.</li>
+                        </ul>
                       </div>
-
-                     <ul>
-                        <div v-if="baggrund == 'stil' || baggrund == 'nyt' && periode == 'under12'">
-                          <li >Du kan flytte hurtigere ind i din nye bolig, og du slipper for en stor beslutning oven i flytningen.</li>
-                          <li>Du finder ud af, hvad du reelt har behov for i dit køkken.</li>
-                          <li>Du undgår fejlbeslutninger.</li>
-                        </div>
-                        
-                        <div v-if="baggrund == 'nyt' && periode == 'over12'">
-                          <li>Du kan hjælpe nogen, der ikke har råd til et nyt køkken.</li>
-                          <li>Du kan evt. tjene lidt penge - måske kan du bruge dem på at vælge en ny bordplade af høj kvalitet, som har lang levetid.</li>
-                          <li>Du kan få andre til at pille dit gamle køkken ned, hvis de overtager det eller køber det af dig.</li>
-                        </div>
-
-                        <div v-if="tilstand != 'slem'">
-                          <li>Du kan sætte dit eget præg på dit køkken</li>
-                          <li>Du slipper for at stå uden køkken i flere uger.</li>
-                          <li>Det er billigere. Et nyt køkken koster op til 500.000 kr. </li>
-                          <li>Det er mere bæredygtigt.</li>
-                        </div>
-
-                        <li v-if="tilstand == 'slem'">Du sparer store mængder af CO2 og sparer på jordens ressourcer.</li>
-                        
-                      </ul>
                     </div>
-                    
                    
                     <v-spacer class="py-2"></v-spacer>
-
                   
                   </v-card-text>
 
-                 
                   <v-container fluid class="teasers">
                     <v-row dense>
                       <v-col
@@ -727,7 +759,7 @@
       <v-row>
         <v-col cols="6">
           <p> 
-            baggrund : {{ baggrund }}
+            omfang : {{ omfang }}
           </p>
           <p>
             tilstand : {{ tilstand }}
@@ -764,7 +796,7 @@
         return {
           tilstand: '',
           periode: '',
-          baggrund: '',
+          omfang: '',
           e1: 1,
         }
       },
